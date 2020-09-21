@@ -16,15 +16,8 @@ namespace lab_1
         public MainForm()
         {
             InitializeComponent();
-            ToolTip toolTipAbout = new ToolTip();
-            toolTipAbout.SetToolTip(this.aboutButton, "About program");
             radioButtonRandom.Checked = true;
             buttonEnter.Visible = false;
-        }
-
-        private void aboutButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Выполнил студент 484 группы,\nКрупский Артемий Игоревич", "About program");
         }
 
         private static int[] arr;
@@ -36,39 +29,55 @@ namespace lab_1
             if (radioButtonRandom.Checked == true)
             {
                 clearAllTextBox();
+                radioButtonFile.Enabled = false;
+                radioButtonKeyboard.Enabled = false;
 
                 try
                 {
                     size = Convert.ToInt32(textBoxSize.Text);
-                }
 
+                    if (size <= 999 && size != 0)
+                    {
+                        arr = new int[size];
+                        arrCopy = new int[size];
+                    }
+                    else if (size > 999)
+                    {
+                        MessageBox.Show("Size more than 999", "Error");
+                        return;                    
+                    }
+                    else if (size == 0)
+                    {
+                        MessageBox.Show("Size is equal 0", "Error");
+                        return;
+                    }
+
+                    Random rand = new Random();
+
+                    for (int i = 0; i < arr.Length; i++)
+                        arr[i] = rand.Next(-1000, 1000);
+
+                    Array.Copy(arr, arrCopy, size);
+                    Array.Sort(arr);
+
+                    for (int i = 0; i < size; i++)
+                    {
+                        textBoxUnsorted.Text += arrCopy[i] + " ";
+                        textBoxSorted.Text += arr[i] + " ";
+                        textBoxSize.Clear();
+                    }
+                }
                 catch
                 {
-                    MessageBox.Show("Enter size of array", "Notification");
-                }
-                
-                arr = new int[size];
-                arrCopy = new int[size];
-
-                Random rand = new Random();
-
-                for (int i = 0; i < arr.Length; i++)
-                    arr[i] = rand.Next(-1000, 1000);
-
-                Array.Copy(arr, arrCopy, size);
-                Array.Sort(arr);
-
-                for (int i = 0; i < size; i++)
-                {
-                    textBoxUnsorted.Text += arrCopy[i] + " ";
-                    textBoxSorted.Text += arr[i] + " ";
-                    textBoxSize.Clear();
+                    MessageBox.Show("Error in size of array", "Notification");
                 }
             }
 
             else if (radioButtonFile.Checked == true)
             {
                 clearAllTextBox();
+                radioButtonKeyboard.Enabled = false;
+                radioButtonRandom.Enabled = false;
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -78,29 +87,32 @@ namespace lab_1
                     try
                     {
                         arr = str.Split(' ').Select(num => int.Parse(num)).ToArray();
+                        arrCopy = new int[arr.Length];
+                        Array.Copy(arr, arrCopy, arr.Length);
+                        Array.Sort(arr);
+
+                        for (int i = 0; i < arr.Length; i++)
+                        {
+                            textBoxUnsorted.Text += arrCopy[i] + " ";
+                            textBoxSorted.Text += arr[i] + " ";
+                        }
                     }
 
                     catch
                     {
                         MessageBox.Show("Error in string", "Exception");
                     }
-
-                    arrCopy = new int[arr.Length];
-
-                    Array.Copy(arr, arrCopy, arr.Length);
-                    Array.Sort(arr);
-
-                    for (int i = 0; i < arr.Length; i++)
-                    {
-                        textBoxUnsorted.Text += arrCopy[i] + " ";
-                        textBoxSorted.Text += arr[i] + " ";
-                    }
                 }
+                else
+                    retStartPoint();
+
             }
 
             else if (radioButtonKeyboard.Checked == true)
             {
                 clearAllTextBox();
+                radioButtonFile.Enabled = false;
+                radioButtonRandom.Enabled = false;
 
                 try
                 {
@@ -114,7 +126,7 @@ namespace lab_1
 
                 catch
                 {
-                    MessageBox.Show("Enter size of array", "Notification");
+                    MessageBox.Show("Error in size of array", "Exception");
                 }                
             }
         }
@@ -194,10 +206,29 @@ namespace lab_1
                 }
             }
         }
+
         private void clearAllTextBox()
         {
             textBoxSorted.Clear();
             textBoxUnsorted.Clear();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            retStartPoint();
+        }
+
+        private void retStartPoint()
+        {
+            if (confirmButton.Visible == false)
+            {
+                confirmButton.Visible = true;
+                buttonEnter.Visible = false;
+            }
+            clearAllTextBox();
+            radioButtonFile.Enabled = true;
+            radioButtonKeyboard.Enabled = true;
+            radioButtonRandom.Enabled = true;
         }
     }
 }

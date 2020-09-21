@@ -38,7 +38,6 @@
             this.radioButtonKeyboard = new System.Windows.Forms.RadioButton();
             this.radioButtonFile = new System.Windows.Forms.RadioButton();
             this.confirmButton = new System.Windows.Forms.Button();
-            this.aboutButton = new System.Windows.Forms.Button();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.sfd = new System.Windows.Forms.SaveFileDialog();
             this.groupBoxOutput = new System.Windows.Forms.GroupBox();
@@ -48,6 +47,7 @@
             this.textBoxUnsorted = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonEnter = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.groupBoxInput.SuspendLayout();
             this.groupBoxCreation.SuspendLayout();
             this.groupBoxOutput.SuspendLayout();
@@ -164,18 +164,6 @@
             this.confirmButton.UseVisualStyleBackColor = false;
             this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
-            // aboutButton
-            // 
-            this.aboutButton.BackColor = System.Drawing.Color.DarkGray;
-            this.aboutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.aboutButton.Location = new System.Drawing.Point(12, 181);
-            this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(94, 39);
-            this.aboutButton.TabIndex = 3;
-            this.aboutButton.Text = "About";
-            this.aboutButton.UseVisualStyleBackColor = false;
-            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
-            // 
             // ofd
             // 
             this.ofd.Filter = "(*.txt)|*.txt";
@@ -257,16 +245,28 @@
             this.buttonEnter.UseVisualStyleBackColor = false;
             this.buttonEnter.Click += new System.EventHandler(this.buttonEnter_Click);
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonCancel.Location = new System.Drawing.Point(12, 181);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(94, 39);
+            this.buttonCancel.TabIndex = 7;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(429, 355);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonEnter);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.groupBoxOutput);
-            this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.groupBoxCreation);
             this.Controls.Add(this.groupBoxInput);
@@ -292,7 +292,6 @@
         private System.Windows.Forms.RadioButton radioButtonKeyboard;
         private System.Windows.Forms.RadioButton radioButtonFile;
         public System.Windows.Forms.Button confirmButton;
-        private System.Windows.Forms.Button aboutButton;
         private System.Windows.Forms.OpenFileDialog ofd;
         private System.Windows.Forms.SaveFileDialog sfd;
         private System.Windows.Forms.GroupBox groupBoxOutput;
@@ -304,6 +303,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonEnter;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }
 
