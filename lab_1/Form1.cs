@@ -69,7 +69,7 @@ namespace lab_1
                 }
                 catch
                 {
-                    MessageBox.Show("Error in size of array", "Notification");
+                    MessageBox.Show("Error in size of array", "Error");
                 }
             }
 
@@ -100,7 +100,7 @@ namespace lab_1
 
                     catch
                     {
-                        MessageBox.Show("Error in string", "Exception");
+                        MessageBox.Show("Error in string", "Error");
                     }
                 }
                 else
@@ -126,7 +126,7 @@ namespace lab_1
 
                 catch
                 {
-                    MessageBox.Show("Error in size of array", "Exception");
+                    MessageBox.Show("Error in size of array", "Error");
                 }                
             }
         }
