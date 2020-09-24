@@ -149,25 +149,45 @@ namespace lab_1
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Saving sorted array", "Notification");
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 if (arr != null)
                 {
                     string name = sfd.FileName;
-                    StreamWriter stream = new StreamWriter(name);
-                    stream.Write(size + " ");
+                    StreamWriter streamSorted = new StreamWriter(name);
+                    streamSorted.Write(size + " ");
                     foreach (int Item in arr)
                     {
-                        stream.Write(Item + " ");
+                        streamSorted.Write(Item + " ");
                     }
-                    stream.Close();
-                    MessageBox.Show($"Done", "Done!");
+                    streamSorted.Close();
+                    MessageBox.Show("Done", "Done!");
+                    
                 }
                 else
                 {
                     MessageBox.Show("Unable to save a file", "Error");
                 }
             }
+
+            MessageBox.Show("Saving unsorted array", "Notification");
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string name = sfd.FileName;
+                    StreamWriter streamUnsorted = new StreamWriter(name);
+                    streamUnsorted.Write(size + " " + textBoxUnsorted.Text);
+                    streamUnsorted.Close();
+                    MessageBox.Show("Done", "Done!");
+                }
+                catch
+                {
+                    MessageBox.Show("Unable to save a file", "Error");
+                } 
+            }
+            
         }
 
         int count = 0;
@@ -229,6 +249,11 @@ namespace lab_1
             radioButtonFile.Enabled = true;
             radioButtonKeyboard.Enabled = true;
             radioButtonRandom.Enabled = true;
+        }
+
+        private void aboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Program developed by Krupsky Artemy, student of 484 gr.\n The program sorts the array.", "About program");
         }
     }
 }

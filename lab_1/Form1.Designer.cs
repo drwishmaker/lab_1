@@ -48,9 +48,12 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonEnter = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxInput.SuspendLayout();
             this.groupBoxCreation.SuspendLayout();
             this.groupBoxOutput.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxInput
@@ -61,7 +64,7 @@
             this.groupBoxInput.Controls.Add(this.textBoxSize);
             this.groupBoxInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBoxInput.ForeColor = System.Drawing.Color.White;
-            this.groupBoxInput.Location = new System.Drawing.Point(12, 226);
+            this.groupBoxInput.Location = new System.Drawing.Point(10, 151);
             this.groupBoxInput.Name = "groupBoxInput";
             this.groupBoxInput.Size = new System.Drawing.Size(194, 122);
             this.groupBoxInput.TabIndex = 0;
@@ -109,7 +112,7 @@
             this.groupBoxCreation.Controls.Add(this.radioButtonFile);
             this.groupBoxCreation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBoxCreation.ForeColor = System.Drawing.Color.White;
-            this.groupBoxCreation.Location = new System.Drawing.Point(12, 13);
+            this.groupBoxCreation.Location = new System.Drawing.Point(10, 28);
             this.groupBoxCreation.Name = "groupBoxCreation";
             this.groupBoxCreation.Size = new System.Drawing.Size(194, 117);
             this.groupBoxCreation.TabIndex = 1;
@@ -156,7 +159,7 @@
             this.confirmButton.BackColor = System.Drawing.Color.DarkGray;
             this.confirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.confirmButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.confirmButton.Location = new System.Drawing.Point(12, 136);
+            this.confirmButton.Location = new System.Drawing.Point(10, 279);
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(94, 39);
             this.confirmButton.TabIndex = 2;
@@ -176,7 +179,7 @@
             this.groupBoxOutput.Controls.Add(this.textBoxUnsorted);
             this.groupBoxOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBoxOutput.ForeColor = System.Drawing.Color.White;
-            this.groupBoxOutput.Location = new System.Drawing.Point(212, 12);
+            this.groupBoxOutput.Location = new System.Drawing.Point(210, 27);
             this.groupBoxOutput.Name = "groupBoxOutput";
             this.groupBoxOutput.Size = new System.Drawing.Size(206, 336);
             this.groupBoxOutput.TabIndex = 4;
@@ -225,7 +228,7 @@
             // 
             this.buttonSave.BackColor = System.Drawing.Color.DarkGray;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonSave.Location = new System.Drawing.Point(112, 136);
+            this.buttonSave.Location = new System.Drawing.Point(110, 279);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(94, 39);
             this.buttonSave.TabIndex = 5;
@@ -237,7 +240,7 @@
             // 
             this.buttonEnter.BackColor = System.Drawing.Color.DarkGray;
             this.buttonEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonEnter.Location = new System.Drawing.Point(112, 181);
+            this.buttonEnter.Location = new System.Drawing.Point(110, 324);
             this.buttonEnter.Name = "buttonEnter";
             this.buttonEnter.Size = new System.Drawing.Size(94, 39);
             this.buttonEnter.TabIndex = 6;
@@ -249,7 +252,7 @@
             // 
             this.buttonCancel.BackColor = System.Drawing.Color.DarkGray;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonCancel.Location = new System.Drawing.Point(12, 181);
+            this.buttonCancel.Location = new System.Drawing.Point(10, 324);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(94, 39);
             this.buttonCancel.TabIndex = 7;
@@ -257,12 +260,33 @@
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutProgramToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(428, 27);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // aboutProgramToolStripMenuItem
+            // 
+            this.aboutProgramToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.aboutProgramToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.aboutProgramToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.aboutProgramToolStripMenuItem.Name = "aboutProgramToolStripMenuItem";
+            this.aboutProgramToolStripMenuItem.Size = new System.Drawing.Size(116, 23);
+            this.aboutProgramToolStripMenuItem.Text = "About program";
+            this.aboutProgramToolStripMenuItem.Click += new System.EventHandler(this.aboutProgramToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(429, 355);
+            this.ClientSize = new System.Drawing.Size(428, 371);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonEnter);
             this.Controls.Add(this.buttonSave);
@@ -270,6 +294,9 @@
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.groupBoxCreation);
             this.Controls.Add(this.groupBoxInput);
+            this.Controls.Add(this.menuStrip1);
+            this.HelpButton = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "1_lab";
             this.groupBoxInput.ResumeLayout(false);
@@ -278,7 +305,10 @@
             this.groupBoxCreation.PerformLayout();
             this.groupBoxOutput.ResumeLayout(false);
             this.groupBoxOutput.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -304,6 +334,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonEnter;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem aboutProgramToolStripMenuItem;
     }
 }
 
